@@ -310,18 +310,18 @@ const AdminProducts = () => {
                                   </td>
 
                                   <td className="px-3 py-2">
-                                    <button onClick={() => handleToggleFeatured(p._id)}>
-                                      {p.isFeatured ? <FiToggleRight /> : <FiToggleLeft />}
+                                    <button onClick={() => handleToggleFeatured(p._id)} className={`text-xl transition-colors ${p.isFeatured ? 'text-primary-600' : 'text-gray-300'}`}>
+                                      {p.isFeatured ? <FiToggleRight size={22} /> : <FiToggleLeft size={22} />}
                                     </button>
                                   </td>
 
                                   <td className="px-3 py-2">
                                     <div className="flex gap-2">
-                                      <Link to={`/admin/products/edit/${p._id}`}>
-                                        <FiEdit2 />
+                                      <Link className='text-green-600 font-bold  hover:text-green-800'  to={`/admin/products/edit/${p._id}`}>
+                                        <FiEdit2 size={15} />
                                       </Link>
-                                      <button onClick={() => handleDelete(p._id)}>
-                                        <FiTrash2 />
+                                      <button className='text-green-600 font-bold  hover:text-green-800'  onClick={() => handleDelete(p._id)}>
+                                        <FiTrash2 size={15} />
                                       </button>
                                     </div>
                                   </td>
