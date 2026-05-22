@@ -320,7 +320,7 @@ const AdminProducts = () => {
                                       <Link className='text-green-600 font-bold  hover:text-green-800'  to={`/admin/products/edit/${p._id}`}>
                                         <FiEdit2 size={15} />
                                       </Link>
-                                      <button className='text-green-600 font-bold  hover:text-green-800'  onClick={() => handleDelete(p._id)}>
+                                      <button className='text-red-600 font-bold  hover:text-red-800'  onClick={() => handleDelete(p._id)}>
                                         <FiTrash2 size={15} />
                                       </button>
                                     </div>
