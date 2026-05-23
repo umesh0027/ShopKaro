@@ -293,7 +293,26 @@ const getProducts = async (req, res) => {
 
     const query = { isActive: true };
 
-    if (search) query.$text = { $search: search };
+    // if (search) query.$text = { $search: search };
+       if (search) {
+  // 1. Find categories + subcategories matching search
+  const matchedCategories = await Category.find({
+    name: { $regex: search, $options: 'i' }
+  }).select('_id');
+
+  const categoryIds = matchedCategories.map(c => c._id);
+
+  // 2. Combine search
+  query.$and = query.$and || [];
+
+  query.$and.push({
+    $or: [
+      { $text: { $search: search } },   // product fields  (tags, description , product name)
+      { category: { $in: categoryIds } } // category/subcategory match
+    ]
+  });
+}
+
 
     // ✅ FIXED category logic (parent + subcategories)
     if (category) {
