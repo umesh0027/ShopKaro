@@ -14,6 +14,31 @@ import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
 import ProductCardSkeleton from '../../components/ProductCardSkeleton';
 
+function MarqueeStrip() {
+  const items = ['FREE DELIVERY', 'PREMIUM QUALITY', 'EASY RETURNS', 'SECURE PAYMENTS', 'BEST PRICES', '24/7 SUPPORT'];
+  return (
+    <>
+      <style>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .marquee-track { animation: marquee 10s linear infinite; }
+      `}</style>
+      <div className="overflow-hidden bg-gradient-to-br from-pink-400 to-yellow-500  py-2.5">
+        <div className="marquee-track flex whitespace-nowrap">
+          {[...items, ...items].map((item, i) => (
+            <span key={i} className="inline-flex items-center gap-3 px-8 text-white font-bold text-xs tracking-widest">
+              <span className="text-blue-600">✦</span> {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
@@ -60,6 +85,7 @@ const Home = () => {
 
   return (
     <div className="pt-16">
+    <MarqueeStrip/>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pink-700 via-gray-900 to-yellow-900 overflow-hidden">
         {/* Decorative circles */}
