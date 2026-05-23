@@ -94,6 +94,7 @@ const ColorRow = ({ color, idx, onChange, onRemove, variantType, categorySizes =
           {/* Images for this color */}
           <div>
             <label className="block text-xs font-medium text-gray-600 mb-2">Images for this color</label>
+              <p className='text-sm text-red-400'>Maximum file size allowed is 5MB</p>
             <div className="flex gap-2 flex-wrap">
               {/* Existing uploaded images */}
               {(color.images||[]).filter(i=>i.url).map((img,i)=>(
@@ -597,6 +598,7 @@ const ProductForm = () => {
               <FiUpload size={22} className="text-gray-400 mx-auto mb-1.5"/>
               <p className="text-sm text-gray-500 font-medium">Click to upload</p>
               <p className="text-xs text-gray-400">JPG, PNG, WEBP</p>
+                <p className='text-sm text-red-400'>Maximum file size allowed is 5MB</p>
               <input type="file" multiple accept="image/*" onChange={handleImageChange} className="hidden"/>
             </label>
           </div>
