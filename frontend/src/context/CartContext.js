@@ -44,6 +44,20 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product, quantity = 1) => {
     setCartItems(prev => {
+      //  HANDLE BUNDLE
+   if (product.type === 'bundle') {
+  const bundleKey = product.cartKey || `bundle_${product._id}_${Date.now()}`;
+
+  return [
+    ...prev,
+    {
+      ...product,
+      cartKey: bundleKey, 
+      quantity: product.quantity || 1
+    }
+  ];
+}
+
       // Unique key = productId + color + size
       const cartKey = `${product._id}__${product.selectedColor||''}__${product.selectedSize||''}`;
       const existing = prev.find(item => item.cartKey === cartKey);
@@ -76,7 +90,7 @@ export const CartProvider = ({ children }) => {
         toast.error('Not enough stock available');
         return prev;
       }
-      toast.success('Added to cart!');
+      // toast.success('Added to cart!');
       // Get best image — color image first, then product image
       // const image = product.selectedColorImage || product.images?.[0]?.url || product.image || '';
 
@@ -116,10 +130,6 @@ export const CartProvider = ({ children }) => {
     }));
   }
 
-  // const removeFromCart = (productId) => {
-  //   setCartItems(prev => prev.filter(item => item._id !== productId));
-  //   toast.success('Removed from cart');
-  // };
 
   
 
