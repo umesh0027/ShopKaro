@@ -5,7 +5,7 @@ const {
   getBundles, getBundle, getBundlesByProduct,
   createBundle, updateBundle, deleteBundle,
   toggleBundle, getAdminBundles
-} = require('../controllers/bundleController');
+} = require('../controllers/BundleController');
 
 const { protect, adminOnly } = require('../middleware/auth');
 // NOTE: ye apne existing auth middleware ke same names use karo
