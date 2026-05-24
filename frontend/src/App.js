@@ -13,6 +13,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 // import Categories from './pages/admin/Categories';
 import UserCategories from './pages/user/Categories';
 import NotFound from './pages/user/Error';
+import AdminBundles from './pages/admin/AdminBundle';
 
 // Lazy loaded pages
 const Home = lazy(() => import('./pages/user/Home'));
@@ -32,6 +33,8 @@ const TermsConditions = lazy(() => import('./pages/user/TermsConditions'));
 const Login = lazy(() => import('./pages/user/Login'));
 const Register = lazy(() => import('./pages/user/Register'));
 const ForgotPassword = lazy(() => import('./pages/user/ForgotPassword'));
+const Bundles      = lazy(() => import('./pages/user/Bundles'));
+const BundleDetail = lazy(() => import('./pages/user/BundleDetail'));
 
 // Admin pages
 const AdminLayout = lazy(() => import('./pages/admin/AdminLayout'));
@@ -78,6 +81,8 @@ const AppRoutes = () => {
       <Route path="/contact" element={<><Navbar /><main className="min-h-screen"><Contact /></main><Footer /></>} />
       <Route path="/terms" element={<><Navbar /><main className="min-h-screen"><TermsConditions /></main><Footer /></>} />
       <Route path="/track-order" element={<><Navbar /><main className="min-h-screen"><TrackOrder /></main><Footer /></>} />
+    <Route path="/bundles"    element={<><Navbar /><main className="min-h-screen"><Bundles /></main><Footer /></>} />
+    <Route path="/bundles/:id" element={<><Navbar /><main className="min-h-screen"><BundleDetail /></main><Footer /></>} />
 
       {/* Auth routes */}
       <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
@@ -107,6 +112,7 @@ const AppRoutes = () => {
         <Route path="payments" element={<AdminPayments />} />
         <Route path="reviews" element={<AdminReviews />} />
         <Route path="returns" element={<AdminReturns />} />
+  <Route path="/admin/bundles" element={<AdminBundles />} />
       </Route>
 
       {/* <Route path="*" element={<><Navbar /><main className="min-h-screen flex items-center justify-center"><div className="text-center"><h1 className="font-display text-6xl font-bold text-primary-600">404</h1><p className="text-xl text-gray-600 mt-4">Page not found</p><a href="/" className="btn-primary mt-6 inline-block">Go Home</a></div></main><Footer /></>} /> */}
