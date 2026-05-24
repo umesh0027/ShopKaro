@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { FiGrid, FiPackage, FiShoppingBag, FiUsers,FiRefreshCw , FiMessageSquare, FiCreditCard, FiStar, FiTag, FiMenu, FiX, FiLogOut, FiChevronRight } from 'react-icons/fi';
+import { FiGrid, FiPackage, FiShoppingBag, FiUsers,FiRefreshCw ,FiLayers, FiMessageSquare, FiCreditCard, FiStar, FiTag, FiMenu, FiX, FiLogOut, FiChevronRight } from 'react-icons/fi';
 import { HiSparkles } from 'react-icons/hi2';
 import { MdStore } from 'react-icons/md';
 import { BsShop } from 'react-icons/bs';
@@ -13,12 +13,14 @@ const navItems = [
   { to: '/admin', icon: FiGrid, label: 'Dashboard', exact: true },
   { to: '/admin/products', icon: FiPackage, label: 'Products' },
   { to: '/admin/categories', icon: FiTag, label: 'Categories' },
+    { to: '/admin/bundles', icon: FiLayers, label: 'Bundles & Combos' },
   { to: '/admin/orders', icon: FiShoppingBag, label: 'Orders' },
   { to: '/admin/payments', icon: FiCreditCard, label: 'Payments' },
   { to: '/admin/users', icon: FiUsers, label: 'Users' },
   { to: '/admin/contacts', icon: FiMessageSquare, label: 'Contacts' },
   { to: '/admin/reviews', icon: FiStar, label: 'Reviews' },
   { to: '/admin/returns', icon: FiRefreshCw, label: 'Returns' },
+  
 ];
 
 const AdminLayout = () => {
