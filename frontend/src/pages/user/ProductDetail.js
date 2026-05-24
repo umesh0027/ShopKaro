@@ -14,6 +14,7 @@ import { useCart } from '../../context/CartContext';
 import { useAuth } from '../../context/AuthContext';
 import ProductCard from '../../components/common/ProductCard';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
+import FrequentlyBoughtTogether from '../../components/common/FrequentlyBoughtTogether';
 import toast from 'react-hot-toast';
 
 /* ─── Image Zoom Lightbox ─── */
@@ -747,6 +748,8 @@ const ProductDetail = () => {
               }
             </div>
           )}
+
+<FrequentlyBoughtTogether productId={product._id} />
 
           {activeTab==='reviews'&&(
             <div>
