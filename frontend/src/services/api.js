@@ -119,6 +119,19 @@ export const contactAPI = {
   delete: (id) => API.delete(`/contact/${id}`),
 };
 
+
+// bundleApi
+export const bundleAPI = {
+  getAll:       (params) => API.get('/bundles', { params }),
+  getOne:       (id)     => API.get(`/bundles/${id}`),
+  getByProduct: (pid)    => API.get(`/bundles/by-product/${pid}`),
+  getAdmin:     (params) => API.get('/bundles/admin', { params }),
+  create:       (data)   => API.post('/bundles', data),
+  update:       (id, data) => API.put(`/bundles/${id}`, data),
+  delete:       (id)     => API.delete(`/bundles/${id}`),
+  toggle:       (id)     => API.patch(`/bundles/${id}/toggle`),
+};
+
 // ============ ADMIN ============
 export const adminAPI = {
   getDashboard: () => API.get('/admin/dashboard'),
